@@ -1,5 +1,10 @@
 # dependencies (frontend)
 frontend/node_modules/
+# dependencies (backend)
+
+backend/node_modules/
+# generated files
+node_modules/
 
 # build output
 frontend/dist/
