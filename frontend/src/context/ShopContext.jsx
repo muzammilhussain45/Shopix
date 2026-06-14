@@ -164,7 +164,7 @@ export const ShopContext = React.createContext();
 
 
     const value ={
-            products, currency, delivery_fee, search, setSearch, showSearch, setShowSearch, cartItems, addToCart, getCartCount, updateQuantity, getCartAmount, navigate, backendUrl, token, setToken
+            products, currency, delivery_fee, search, setSearch, showSearch, setShowSearch, cartItems, addToCart, getCartCount, setCartItems,updateQuantity, getCartAmount, navigate, backendUrl, token, setToken
     }
     return (
         <ShopContext.Provider value={value}>
