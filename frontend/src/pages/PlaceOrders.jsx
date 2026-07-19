@@ -119,24 +119,24 @@ const PlaceOrders = () => {
         </div>
 
         <div className='flex gap-3'>
-          <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First Name' />
-          <input required onChange={onChangeHandler} name='lastName' value={formData.lastName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Last Name' />
+          <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='field py-1.5 px-3.5' type="text" placeholder='First Name' />
+          <input required onChange={onChangeHandler} name='lastName' value={formData.lastName} className='field py-1.5 px-3.5' type="text" placeholder='Last Name' />
         </div>
-        <input required onChange={onChangeHandler} name='email' value={formData.email} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="email" placeholder='Email Address' />
-        <input required onChange={onChangeHandler} name='street' value={formData.street} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Street Address' />
+        <input required onChange={onChangeHandler} name='email' value={formData.email} className='field py-1.5 px-3.5' type="email" placeholder='Email Address' />
+        <input required onChange={onChangeHandler} name='street' value={formData.street} className='field py-1.5 px-3.5' type="text" placeholder='Street Address' />
 
         <div className='flex gap-3'>
-          <input required onChange={onChangeHandler} name='city' value={formData.city} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='City' />
-          <input required onChange={onChangeHandler} name='state' value={formData.state} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='State' />
+          <input required onChange={onChangeHandler} name='city' value={formData.city} className='field py-1.5 px-3.5' type="text" placeholder='City' />
+          <input required onChange={onChangeHandler} name='state' value={formData.state} className='field py-1.5 px-3.5' type="text" placeholder='State' />
         </div>
 
 
         <div className='flex gap-3'>
-          <input required onChange={onChangeHandler} name='zipcode' value={formData.zipcode} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Zip Code' />
-          <input required onChange={onChangeHandler} name='country' value={formData.country} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='Country' />
+          <input required onChange={onChangeHandler} name='zipcode' value={formData.zipcode} className='field py-1.5 px-3.5' type="number" placeholder='Zip Code' />
+          <input required onChange={onChangeHandler} name='country' value={formData.country} className='field py-1.5 px-3.5' type="text" placeholder='Country' />
         </div>
 
-        <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="number" placeholder='Phone Number' />
+        <input required onChange={onChangeHandler} name='phone' value={formData.phone} className='field py-1.5 px-3.5' type="number" placeholder='Phone Number' />
       </div>
 
 
@@ -148,29 +148,22 @@ const PlaceOrders = () => {
 
         <div className='mt-12'>
           <Title text1={"PAYMENT"} text2={"METHOD"} />
-          {/* Payment method options would go here */}
           <div className='flex gap-3 flex-col lg:flex-row'>
 
-            <div onClick={() => setMethod('stripe')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
-              <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-green-400' : ''}`}></p>
-              <img className='h-5 mx-4' src={assets.stripe_logo} alt="" />
+            <div onClick={() => setMethod('stripe')} className={`flex items-center gap-3 border p-3 px-4 cursor-pointer rounded-lg transition-colors ${method === 'stripe' ? 'border-brand-500 bg-brand-50' : 'border-ink-300'}`}>
+              <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-brand-500 border-brand-500' : 'border-ink-400'}`}></p>
+              <img className='h-5 mx-2' src={assets.stripe_logo} alt="Stripe" />
             </div>
 
 
-            <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
-              <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-green-400' : ''}`}></p>
-              <p className='text-gray-500 text-sm font-medium mx-4'>CASH ON DELIVERY</p>
+            <div onClick={() => setMethod('cod')} className={`flex items-center gap-3 border p-3 px-4 cursor-pointer rounded-lg transition-colors ${method === 'cod' ? 'border-brand-500 bg-brand-50' : 'border-ink-300'}`}>
+              <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-brand-500 border-brand-500' : 'border-ink-400'}`}></p>
+              <p className='text-ink-600 text-sm font-medium mx-2'>CASH ON DELIVERY</p>
             </div>
-
-
-
-
-
-
           </div>
 
           <div className='w-full text-end mt-8'>
-            <button type='submit' className='bg-black text-white py-3 px-16 text-sm'>PLACE ORDER</button>
+            <button type='submit' className='bg-brand-600 text-white py-3 px-16 text-sm font-medium rounded-lg hover:bg-brand-700 transition-colors'>PLACE ORDER</button>
           </div>
         </div>
       </div>

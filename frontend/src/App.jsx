@@ -10,6 +10,7 @@ import PlaceOrders from "./pages/PlaceOrders";
 import Orders from "./pages/Orders";
 
 import NavBar from "./components/NavBar";
+import ScrollToTop from "./components/ScrollToTop";
 
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -22,8 +23,24 @@ import Verify from "./pages/Verify";
 
 const App = () => {
   return (
-    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-      <ToastContainer/>
+    <div className="app-bg px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2600}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="light"
+        toastStyle={{
+          borderRadius: '12px',
+          fontFamily: 'Outfit, sans-serif',
+          fontSize: '14px',
+          boxShadow: '0 10px 30px rgba(24,24,27,0.10)',
+          border: '1px solid #e2e5ec',
+        }}
+      />
+      <ScrollToTop />
       <NavBar />
       <SearchBar/>
       <Routes>

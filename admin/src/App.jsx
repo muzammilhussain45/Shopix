@@ -23,23 +23,37 @@ const App = () => {
   },[token])
 
   return (
-    <div className='bg-gray-50 min-h-screen'>
-        <ToastContainer />
+    <div className='bg-ink-50 min-h-screen'>
+        <ToastContainer
+          position="top-right"
+          autoClose={2600}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          pauseOnHover
+          theme="light"
+          toastStyle={{
+            borderRadius: '12px',
+            fontFamily: 'Outfit, sans-serif',
+            fontSize: '14px',
+            boxShadow: '0 10px 30px rgba(24,24,27,0.10)',
+            border: '1px solid #e8e8ea',
+          }}
+        />
 
       {token === "" ? <Login setToken={setToken}/>:
       <>
        <NavBar setToken={setToken}></NavBar>
-    <hr />
-    <div className='flex w-full'>
-      <SideBar/>
-      <div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
-        <Routes>
-          <Route path='/add' element={<Add token={token} />} />
-          <Route path='/list' element={<List token={token} />} />
-          <Route path='/orders' element={<Orders token={token} />} />
-        </Routes>
-      </div>
-    </div>
+       <div className='flex w-full'>
+         <SideBar/>
+         <main className='flex-1 min-w-0 px-6 sm:px-10 py-8 text-ink-700'>
+           <Routes>
+             <Route path='/add' element={<Add token={token} />} />
+             <Route path='/list' element={<List token={token} />} />
+             <Route path='/orders' element={<Orders token={token} />} />
+           </Routes>
+         </main>
+       </div>
       </>}
 
    

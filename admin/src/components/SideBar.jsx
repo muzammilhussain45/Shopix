@@ -1,34 +1,36 @@
 import React from 'react'
-import { assets } from '../assets/assets'
 import { NavLink } from 'react-router-dom'
+import { PlusCircle, ListOrdered, ShoppingBag } from 'lucide-react'
 
 
 const SideBar = () => {
+  const links = [
+    { to: '/add', icon: PlusCircle, label: 'Add Products' },
+    { to: '/list', icon: ListOrdered, label: 'List Products' },
+    { to: '/orders', icon: ShoppingBag, label: 'Orders' },
+  ]
+
   return (
-    <div className='w-[18%] min-h-screen border-r-2'>
-      <div className='flex flex-col gap-4 pt-6 pl-[20%] text-[15px ]'>
-        <NavLink className='flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rouded-l' to='/add'>
-        <img className='w-5 h-5' src={assets.add_icon} alt="" />
-        <p className='hidden md:block'>Add Products</p>
-        </ NavLink>
-
-         <NavLink className='flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rouded-l' to='/list'>
-        <img className='w-5 h-5' src={assets.order_icon} alt="" />
-        <p className='hidden md:block'>List Products</p>
-        </ NavLink>
-
-
-          <NavLink className='flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rouded-l' to='/orders'>
-        <img className='w-5 h-5' src={assets.order_icon} alt="" />
-        <p className='hidden md:block'>Orders</p>
-        </ NavLink>
-
-
-
-
-
+    <aside className='w-[18%] min-h-screen border-r border-ink-100 bg-white'>
+      <div className='flex flex-col gap-2 pt-6 pl-[12%] pr-2 text-[15px]'>
+        {links.map(({ to, icon: Icon, label }) => (
+          <NavLink
+            key={to}
+            to={to}
+            className={({ isActive }) =>
+              `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
+                isActive
+                  ? 'bg-brand-50 text-brand-700 font-medium'
+                  : 'text-ink-600 hover:bg-brand-50 hover:text-brand-600'
+              }`
+            }
+          >
+            <Icon className='w-5 h-5' />
+            <p className='hidden md:block'>{label}</p>
+          </NavLink>
+        ))}
       </div>
-    </div>
+    </aside>
   )
 }
 

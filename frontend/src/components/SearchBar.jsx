@@ -1,38 +1,39 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
-import { assets } from '../assets/assets';
 import { useLocation } from 'react-router-dom';
+import { Search, X } from 'lucide-react';
 
 const SearchBar = () => {
 
-    const {search, setSearch, showSearch, setShowSearch} = useContext(ShopContext);
+    const { search, setSearch, showSearch, setShowSearch } = useContext(ShopContext);
 
     const location = useLocation();
     const [visible, setVisible] = useState(false)
 
-    useEffect(()=>{
-        if (location.pathname.includes('collection') ) {
+    useEffect(() => {
+        if (location.pathname.includes('collection')) {
             setVisible(true);
         }
-        else{
+        else {
             setVisible(false);
         }
-    },[location])
+    }, [location])
 
-  return showSearch && visible ? (
-    
-    <div className='border-t border-b bg-gray-50 text-center'>
+    return showSearch && visible ? (
 
-        <div className='inline-flex items-center justify-center border border-gray-400 px-5 py-2 my-5 mx-3 rounded-full w-3/4 sm:w-1/2'>
-        <input value={search} onChange={(e)=>setSearch(e.target.value)} className='flex-1 outline-none bg-inherit text-sm' type="text" placeholder='Search' />
+        <div className='border-t border-b border-ink-100 bg-brand-50/50 text-center'>
 
-        <img className='w-4' src={assets.search_icon} alt="" />
+            <div className='inline-flex items-center justify-center border border-ink-300 bg-white px-5 py-2 my-5 mx-3 rounded-full w-3/4 sm:w-1/2'>
+                <input value={search} onChange={(e) => setSearch(e.target.value)} className='flex-1 outline-none bg-inherit text-sm' type="text" placeholder='Search products...' />
+                <Search className='w-4 h-4 text-ink-400' />
+            </div>
+
+            <button onClick={() => setShowSearch(false)} aria-label="Close search" className='inline-flex items-center justify-center w-6 h-6 rounded-full hover:bg-ink-200 transition-colors'>
+                <X className='w-3.5 h-3.5' />
+            </button>
+
         </div>
-
-        <img onClick={()=>setShowSearch(false)} className='inline w-3 cursor-pointer' src={assets.cross_icon} alt="" />
-      
-    </div>
-  ) : null
+    ) : null
 }
 
 export default SearchBar
